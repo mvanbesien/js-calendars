@@ -1,4 +1,4 @@
-// mvanbesien - v1.0 - 05 Mar 2016
+// mvanbesien - v1.1 - 24 Mar 2016
 
 var pataphysiqueCalendarValues = function(date) {
 
@@ -18,14 +18,14 @@ var pataphysiqueCalendarValues = function(date) {
 		dayIndex--;
 		if (dayIndex == 0) {
 			monthIndex--;
-			dayIndex == monthIndex == 5 ? 29 : 28;
+			dayIndex = monthIndex == 5 ? 29 : 28;
 		}
 	}
 	if (monthIndex > 10) {
 		dayIndex--;
 		if (dayIndex == 0) {
 			monthIndex--;
-			dayIndex == monthIndex == 10 ? 29 : 28;
+			dayIndex = monthIndex == 10 ? 29 : 28;
 		}
 	}
 
