@@ -1,4 +1,4 @@
-// mvanbesien - v1.0 - 10 Mar 2016
+// mvanbesien - v1.1 - 27 Mar 2016
 
 var romanCalendarText = function(date) {
 	var RO_MENSIS_1 = [ "Ianuariis", "Februariis", "Martiis", "Aprilibus", "Maiis", "Iuniis", "Iuliis", "Augustis", "Septembribus", "Octobribus",
@@ -10,7 +10,7 @@ var romanCalendarText = function(date) {
 			"undevicesimum" ];
 	var MONTH_TYPE = [ 1, 4, 3, 2, 3, 2, 3, 1, 2, 3, 2, 1 ];
 
-	var newDate = new Date(date.getTime() - 13 * 86400);
+	var newDate = new Date(date.getTime() - 13 * 86400 * 1000);
 
 	var rYear = newDate.getFullYear() + 753;
 	var date = newDate.getDate();
