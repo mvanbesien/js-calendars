@@ -1,7 +1,7 @@
-// mvanbesien - v1.0 - 05 Mar 2016
+// mvanbesien - v1.1 - 27 Mar 2016
 
 var republicanCalendarValues = function(date) {
-	var nbOfDays = dayCounter(new Date(date.getFullYear() - 1, 8, 21), date);
+	var nbOfDays = dayCounter(new Date(date.getFullYear() - 1, 8, 22), date);
 	var nbDaysInYear = isLeapYear(date.getFullYear()) ? 366 : 365;
 	var year = date.getFullYear() - 1792;
 	year += (nbOfDays > nbDaysInYear) ? 1 : 0;
