@@ -47,6 +47,7 @@
 		<tr><th class="title">Symmetry454 date:</th><td><span id="symmetry454"><i>Coming soon...</i></span></td><td class="go"><a href="https://en.wikipedia.org/wiki/Symmetry454">More...</a></td></tr>
 		<tr><th class="title">World date:</th><td><span id="universal"><i>Coming soon...</i></span></td><td class="go"><a href="https://en.wikipedia.org/wiki/World_Calendar">More...</a></td></tr>
 		<tr><th class="title">French Sexagesimal date:</th><td><span id="sexagesimal"><i>Coming soon...</i></span></td><td class="go"><a href="http://www.sexagesimal.org/en_type.php">More...</a></td></tr>
+		<tr><th class="title">Boreal Seasons date:</th><td><span id="season"><i>Coming soon...</i></span></td><td class="go">More...</td></tr>
 	</table>
 	<table>
 		<caption><h3>Fictional calendars</h3></caption>
@@ -83,6 +84,7 @@
 <script src="js/aztec.js"></script>
 <script src="js/darian.js"></script>
 <script src="js/goddess.js"></script>
+<script src="js/season.js"></script>
 <script>
 var calendars = (function() {
 		var calendarsUpdater = function() {
@@ -103,6 +105,7 @@ var calendars = (function() {
 			document.getElementById("mayan").textContent = mayanTHCalendarText(date)+ " " + mayanLongCalendarText(date);
 			document.getElementById("aztec").textContent = aztecSolarCalendarText(date) + " (Solar Date), " + aztecSacredCalendarText(date) + " (Sacred Date)";
 			document.getElementById("darian").textContent = darianCalendarText(date);
+			document.getElementById("season").textContent = seasonCalendarText(date);
 		};
 		
 		var dateToString = function(date) {
