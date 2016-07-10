@@ -1,0 +1,108 @@
+<!-- mvanbesien - v1.1 - 10 Jul 2016 -->
+<!DOCTYPE html>
+<html lang="en">
+<meta charset=utf-8 />
+<style>
+	body {
+		font-family: "Verdana", sans-serif;
+		font-size: 13px;
+	}
+	.content {
+		text-align: left;
+		background-color: #f1f1c1;
+	}
+	h2 {
+		text-align: center;
+	}
+</style>
+<head>
+	<title>About the Boreal Season Calendar</title>
+</head>
+<body>
+	<h2>About the Boreal Season Calendar...</h2>
+	<h3>Why this calendar ?</h3>
+	<div class="content">
+		<p>
+			The <b>Boreal Season Calendar</b> is just a simple attempt to create a worldwide unified calendar that doesn't take any assumption nor doesn't
+			consider any religion or believing. Indeed, it only considers physics.
+		</p>
+	</div>
+	<h3>Some rules about this calendar ?</h3>
+	<div class="content">
+		<p>
+			This calendar is split into <b>twelve months</b> composed into <b>four quarters</b>, as for the Gregorian calendar. Each of the four quarters are framed by the four main solar events on Earth: the <b>solstices</b> and the <b>equinoxes</b>, as for our current seasons. As those events are purely astronomical events, the respective lengths of the quarters will differ from a year to another and nothing is done to try to linearize, as we only consider physics.
+		</p>
+		<p>
+			Each quarter is split into three months, all following a naming conventions for the seasons they define. E.g for Spring, the three months' names will respectively be: <b>the rising Spring</b>, <b>full Spring</b> and <b> the setting Spring</b>. The first and the third will always count 30 days while the second one's length will be adapted to stick to the season's length.
+		</p>
+		<p>
+			A year starts at a boreal Winter's beginning.
+		</p>
+	</div>
+	<h3>Let's put this in practice...</h3>
+	<div class="content">
+		<div>
+			<p>The first example is based on current year.</p>
+			<p>There, Winter starts on <b><span id="lastWinter">????</span></b>, which defines the beginning of the year.</p>
+			<p>Then, Spring starts on <b><span id="currentSpring">????</span></b>, meaning that Winter lasts <b><span id="currentSpringLength">????</span></b> days. So the <b>high Winter month</b> of the current year's Winter quarter will last <b><span id="currentWinterHighLength">????</span></b> days.
+			<p>Applying the same kind of formulas, Summer starts on <b><span id="currentSummer">????</span></b>, Fall on <b><span id="currentFall">????</span></b> and Winter on <b><span id="currentWinter">????</span></b>. Hence <b>high Spring</b>, <b>high Summer</b> and <b>high Fall</b> will respectively last <b><span id="currentSpringHighLength">???</span></b>, <b><span id="currentSummerHighLength">???</span></b> and <b><span id="currentFallHighLength">???</span></b> days.
+		<div>
+		<div>
+			<p>Following that, today is the <b><span id="today">???</span></b> !</p>
+		</div>
+	</div>
+</body>
+<script src="js/season.js"></script>
+<script src="js/common.js"></script>
+<script>
+var calendars = (function() {
+		var calendarsUpdater = function() {
+			var date = new Date();
+			document.getElementById("today").textContent = seasonCalendarText(date);
+					
+			var milestones = [];
+			var year = date.getFullYear();
+
+			milestones[0] = borealWinterSolstice(year);
+			if (dayCounter(milestones[0], date) >= 0) {
+				milestones[1] = borealVernalEquinox(year + 1);
+				milestones[2] = borealSummerSolstice(year + 1);
+				milestones[3] = borealAutumnEquinox(year + 1);
+				milestones[4] = borealWinterSolstice(year + 1);
+			} else {
+				milestones[1] = borealVernalEquinox(year);
+				milestones[2] = borealSummerSolstice(year);
+				milestones[3] = borealAutumnEquinox(year);
+				milestones[4] = borealWinterSolstice(year);
+				milestones[0] = borealWinterSolstice(year - 1);
+			}
+			
+			document.getElementById("lastWinter").textContent = dateToString(milestones[0]);
+			document.getElementById("currentSpring").textContent = dateToString(milestones[1]);
+			document.getElementById("currentSummer").textContent = dateToString(milestones[2]);
+			document.getElementById("currentFall").textContent = dateToString(milestones[3]);
+			document.getElementById("currentWinter").textContent = dateToString(milestones[4]);
+			
+			document.getElementById("currentSpringLength").textContent = dayCounter(milestones[0], milestones[1]);
+			document.getElementById("currentWinterHighLength").textContent = dayCounter(milestones[0], milestones[1]) - 60;
+			document.getElementById("currentSpringHighLength").textContent = dayCounter(milestones[1], milestones[2]) - 60;
+			document.getElementById("currentSummerHighLength").textContent = dayCounter(milestones[2], milestones[3]) - 60;
+			document.getElementById("currentFallHighLength").textContent = dayCounter(milestones[3], milestones[4]) - 60;
+		};
+		
+		var dateToString = function(date) {
+			//var WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+			return date.getDate()+" "+MONTHS[date.getMonth()]+" "+date.getFullYear();
+		}
+		
+		return {
+			init: function() {
+			calendarsUpdater();
+			setInterval(calendarsUpdater, 60000);
+		},
+ 	};
+})();
+calendars.init();
+</script>
+</html>
