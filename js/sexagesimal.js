@@ -1,18 +1,16 @@
-// mvanbesien - v1.0 - 27 Feb 2016
+// mvanbesien - v1.1 - 17 Oct 2016
 
 var sexagesimalCalendarValues = function(date) {
-	var day = date.getDate();
-	var month = date.getMonth() + 1;
+
 	var year = date.getFullYear();
 
-	var sYear = year - 2012;
-	var nbDays = dayCounter(new Date(year - 1, 11, 21), date);
-	var nbOfDaysInYear = isLeapYear(year) ? 366 : 365;
-	if (nbDays > nbOfDaysInYear) {
-		nbDays -= nbOfDaysInYear;
-		sYear++;
+	var sYear = year - 2012 + 1;
+	var nbDays = dayCounter(borealWinterSolstice(year), date);
+	if (nbDays < 0) {
+		nbDays = dayCounter(borealWinterSolstice(year - 1), date);
+		sYear--;
 	}
-
+	
 	var dayNb = nbDays % 61 + 1;
 	var soixNb = parseInt(nbDays / 61) + 1;
 	
@@ -45,4 +43,11 @@ var trailingZeros = function(value, size) {
 		string = "0" + string;
 	}
 	return string;
+}
+
+var borealWinterSolstice = function(year) {
+	var m = (year - 2000) / 1000;
+	var value = 2451900.05952 + 365242.74049 * m - 0.06223 * m * m - 0.00823 * m * m * m + 0.00032 * m * m * m * m;
+	var newDate = dateFromJulian(value)
+	return new Date(newDate.getUTCFullYear(), newDate.getUTCMonth(), newDate.getUTCDate(), 0, 0, 0, 0);
 }
