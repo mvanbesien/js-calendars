@@ -1,4 +1,4 @@
-// mvanbesien - v1.0 - 02 Mar 2016
+// mvanbesien - v1.1 - 18 Oct 2016
 
 var universalCalendarValues = function(date) {
 
@@ -38,7 +38,7 @@ var universalCalendarValues = function(date) {
 };
 
 var universalCalendarText = function(date) {
-	var MONTHS = ["", "January", "February", "March", "April", "May", "June", "Sol", "July", "August", "September", "October", "November", "December" ];
+	var MONTHS = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
 	var DAYNAMES = [ "", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
 	var EXTRADAYS = ["New Year's Day", "Leap Day"]
 	var values = universalCalendarValues(date);
