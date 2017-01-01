@@ -1,4 +1,4 @@
-// mvanbesien - v1.0 - 26 Feb 2016
+// mvanbesien - v1.1 - 01 Jan 2017
 
 var imladrisCalendarValues = function(date) {
 
@@ -6,7 +6,7 @@ var imladrisCalendarValues = function(date) {
 	var month = date.getMonth();
 	var year = date.getFullYear();
 
-	var yen = year / 144 + 1;
+	var yen = parseInt(year / 144 + 1);
 	var loa = year - (yen - 1) * 144;
 	if (loa == 0) {
 		loa = 144;
