@@ -1,4 +1,4 @@
-<!-- mvanbesien - v1.1 - 10 Jul 2016 -->
+<!-- mvanbesien - v1.2 - 12 Jul 2016 -->
 <!DOCTYPE html>
 <html lang="en">
 <meta charset=utf-8 />
@@ -11,7 +11,11 @@
 		text-align: left;
 		background-color: #f1f1c1;
 	}
-	h2 {
+	.title {
+		text-align: left;
+		background-color: #eeeeee;
+	}
+	h1 {
 		text-align: center;
 	}
 </style>
@@ -19,19 +23,15 @@
 	<title>About the Boreal Season Calendar</title>
 </head>
 <body>
-	<h2>About the Boreal Season Calendar...</h2>
-	<h3>Why this calendar ?</h3>
-	<div class="content">
+	<h1>About the Boreal Season Calendar...</h1>
+	<h3 class="title">Why this calendar ?</h3>
+	<div>
 		<p>
-			The <b>Boreal Season Calendar</b> is just a simple attempt to create a worldwide unified calendar that doesn't take any assumption nor doesn't
-			consider any religion or believing. Indeed, it only considers physics.
-		</p>
-		<p>
-			Now, the next challenge is to work on the season naming, as the current names are based on boreal seasons (switched on southern hemisphere), to make it truly universal.
+			The <b>Boreal Season Calendar</b> is just a simple attempt I made, to create a worldwide unified calendar that doesn't take any assumption nor doesn't consider any religion or believing, as it only considers physics.
 		</p>
 	</div>
-	<h3>Some rules about this calendar ?</h3>
-	<div class="content">
+	<h3 class="title">Some rules about this calendar ?</h3>
+	<div>
 		<p>
 			This calendar is split into <b>twelve months</b> composed into <b>four quarters</b>, as for the Gregorian calendar. Each of the four quarters are framed by the four main solar events on Earth: the <b>solstices</b> and the <b>equinoxes</b>, as for our current seasons. As those events are purely astronomical events, the respective lengths of the quarters will differ from a year to another and nothing is done to try to linearize, as we only consider physics.
 		</p>
@@ -42,17 +42,105 @@
 			A year starts at a boreal Winter's beginning.
 		</p>
 	</div>
-	<h3>Let's put this in practice...</h3>
-	<div class="content">
-		<div>
-			<p>The first example is based on current year.</p>
-			<p>There, Winter starts on <b><span id="lastWinter">????</span></b>, which defines the beginning of the year.</p>
-			<p>Then, Spring starts on <b><span id="currentSpring">????</span></b>, meaning that Winter lasts <b><span id="currentSpringLength">????</span></b> days. So the <b>high Winter month</b> of the current year's Winter quarter will last <b><span id="currentWinterHighLength">????</span></b> days.
-			<p>Applying the same kind of formulas, Summer starts on <b><span id="currentSummer">????</span></b>, Fall on <b><span id="currentFall">????</span></b> and Winter on <b><span id="currentWinter">????</span></b>. Hence <b>high Spring</b>, <b>high Summer</b> and <b>high Fall</b> will respectively last <b><span id="currentSpringHighLength">???</span></b>, <b><span id="currentSummerHighLength">???</span></b> and <b><span id="currentFallHighLength">???</span></b> days.
-		<div>
-		<div>
-			<p>Following that, today is the <b><span id="today">???</span></b> !</p>
-		</div>
+	<h3 class="title">Let's put this in practice...</h3>
+	<div>
+		<p>
+			<p>The first example is based on current year: <b><span id="thisYear"></span></b>.</p>
+			<p>There, Winter starts on <b><span id="lastWinter"></span></b>. This day defines the beginning of the current year.</p>
+			<p>Then, Spring starts on <b><span id="currentSpring"></span></b>, meaning that Winter lasts <b><span id="currentSpringLength"></span></b> days. So the <i>high Winter</i> month of this year lasts <b><span id="currentWinterHighLength"></span></b> days.
+			<p>Applying the same kind of formulas, Summer starts on <b><span id="currentSummer"></span></b>, Fall on <b><span id="currentFall"></span></b> and Winter on <b><span id="currentWinter"></span></b>. Hence <i>high Spring</i>, <i>high Summer</i> and <i>high Fall</i> months will respectively last <b><span id="currentSpringHighLength"></span></b>, <b><span id="currentSummerHighLength"></span></b> and <b><span id="currentFallHighLength"></span></b> days.
+		<p>
+		<p>
+			<p>Putting this together, this means that this year will last <b><span id="yearLength"></span></b> days.</p>
+		</p>	
+		<p>
+			And here are the high months' lengths for the coming ten years. Some may find there formulas for perpetual computation.
+			<table border="1px">
+				<tr>
+					<th />
+					<th align="center">High Winter length</th>
+					<th align="center">High Spring length</th>
+					<th align="center">High Summer length</th>
+					<th align="center">High Fall length</th>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year1"></span></b></td>
+					<td align="center"><span id="table-1-winter"></span> days</td>
+					<td align="center"><span id="table-1-spring"></span> days</td>
+					<td align="center"><span id="table-1-summer"></span> days</td>
+					<td align="center"><span id="table-1-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year2"></span></b></td>
+					<td align="center"><span id="table-2-winter"></span> days</td>
+					<td align="center"><span id="table-2-spring"></span> days</td>
+					<td align="center"><span id="table-2-summer"></span> days</td>
+					<td align="center"><span id="table-2-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year3"></span></b></td>
+					<td align="center"><span id="table-3-winter"></span> days</td>
+					<td align="center"><span id="table-3-spring"></span> days</td>
+					<td align="center"><span id="table-3-summer"></span> days</td>
+					<td align="center"><span id="table-3-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year4"></span></b></td>
+					<td align="center"><span id="table-4-winter"></span> days</td>
+					<td align="center"><span id="table-4-spring"></span> days</td>
+					<td align="center"><span id="table-4-summer"></span> days</td>
+					<td align="center"><span id="table-4-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year5"></span></b></td>
+					<td align="center"><span id="table-5-winter"></span> days</td>
+					<td align="center"><span id="table-5-spring"></span> days</td>
+					<td align="center"><span id="table-5-summer"></span> days</td>
+					<td align="center"><span id="table-5-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year6"></span></b></td>
+					<td align="center"><span id="table-6-winter"></span> days</td>
+					<td align="center"><span id="table-6-spring"></span> days</td>
+					<td align="center"><span id="table-6-summer"></span> days</td>
+					<td align="center"><span id="table-6-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year7"></span></b></td>
+					<td align="center"><span id="table-7-winter"></span> days</td>
+					<td align="center"><span id="table-7-spring"></span> days</td>
+					<td align="center"><span id="table-7-summer"></span> days</td>
+					<td align="center"><span id="table-7-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year8"></span></b></td>
+					<td align="center"><span id="table-8-winter"></span> days</td>
+					<td align="center"><span id="table-8-spring"></span> days</td>
+					<td align="center"><span id="table-8-summer"></span> days</td>
+					<td align="center"><span id="table-8-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year9"></span></b></td>
+					<td align="center"><span id="table-9-winter"></span> days</td>
+					<td align="center"><span id="table-9-spring"></span> days</td>
+					<td align="center"><span id="table-9-summer"></span> days</td>
+					<td align="center"><span id="table-9-fall"></span> days</td>
+				</tr>
+				<tr>
+					<td align="center"><b><span id="year10"></span></b></td>
+					<td align="center"><span id="table-10-winter"></span> days</td>
+					<td align="center"><span id="table-10-spring"></span> days</td>
+					<td align="center"><span id="table-10-summer"></span> days</td>
+					<td align="center"><span id="table-10-fall"></span> days</td>
+				</tr>
+			</table>
+		</p>
+	</div>
+	<h3 class="title">What's next ?</h3>
+	<div>
+		<p>
+			Now, the next challenge is to work on the season naming, as the current names are based on boreal seasons (switched on southern hemisphere), to make it truly universal. Any contribution is welcome !
+		</p>
 	</div>
 </body>
 <script src="js/season.js"></script>
@@ -60,9 +148,42 @@
 <script>
 var calendars = (function() {
 		var calendarsUpdater = function() {
-			var date = new Date();
-			document.getElementById("today").textContent = seasonCalendarText(date);
-					
+			var date = new Date();					
+			var milestones = getMilestones(date);
+			var year = date.getFullYear();
+			
+			document.getElementById("thisYear").textContent = milestones[1].getFullYear();
+			
+			document.getElementById("lastWinter").textContent = dateToString(milestones[0]);
+			document.getElementById("currentSpring").textContent = dateToString(milestones[1]);
+			document.getElementById("currentSummer").textContent = dateToString(milestones[2]);
+			document.getElementById("currentFall").textContent = dateToString(milestones[3]);
+			document.getElementById("currentWinter").textContent = dateToString(milestones[4]);
+			
+			document.getElementById("currentSpringLength").textContent = dayCounter(milestones[0], milestones[1]);
+			document.getElementById("currentWinterHighLength").textContent = dayCounter(milestones[0], milestones[1]) - 60;
+			document.getElementById("currentSpringHighLength").textContent = dayCounter(milestones[1], milestones[2]) - 60;
+			document.getElementById("currentSummerHighLength").textContent = dayCounter(milestones[2], milestones[3]) - 60;
+			document.getElementById("currentFallHighLength").textContent = dayCounter(milestones[3], milestones[4]) - 60;
+			
+			document.getElementById("yearLength").textContent = dayCounter(milestones[0], milestones[4]);
+			
+			var tempDate = new Date(year, 6, 1);
+			
+			for (var i = 1; i <= 10; i++) {
+				tempDate.setFullYear(tempDate.getFullYear() + 1);
+				var milestones2 = getMilestones(tempDate);
+				
+				document.getElementById("year"+i).textContent = tempDate.getFullYear();
+				document.getElementById("table-"+i+"-winter").textContent = dayCounter(milestones2[0], milestones2[1]) - 60;
+				document.getElementById("table-"+i+"-spring").textContent = dayCounter(milestones2[1], milestones2[2]) - 60;
+				document.getElementById("table-"+i+"-summer").textContent = dayCounter(milestones2[2], milestones2[3]) - 60;
+				document.getElementById("table-"+i+"-fall").textContent = dayCounter(milestones2[3], milestones2[4]) - 60;
+			}
+			
+		};
+		
+		var getMilestones = function(date) {
 			var milestones = [];
 			var year = date.getFullYear();
 
@@ -80,21 +201,10 @@ var calendars = (function() {
 				milestones[0] = borealWinterSolstice(year - 1);
 			}
 			
-			document.getElementById("lastWinter").textContent = dateToString(milestones[0]);
-			document.getElementById("currentSpring").textContent = dateToString(milestones[1]);
-			document.getElementById("currentSummer").textContent = dateToString(milestones[2]);
-			document.getElementById("currentFall").textContent = dateToString(milestones[3]);
-			document.getElementById("currentWinter").textContent = dateToString(milestones[4]);
-			
-			document.getElementById("currentSpringLength").textContent = dayCounter(milestones[0], milestones[1]);
-			document.getElementById("currentWinterHighLength").textContent = dayCounter(milestones[0], milestones[1]) - 60;
-			document.getElementById("currentSpringHighLength").textContent = dayCounter(milestones[1], milestones[2]) - 60;
-			document.getElementById("currentSummerHighLength").textContent = dayCounter(milestones[2], milestones[3]) - 60;
-			document.getElementById("currentFallHighLength").textContent = dayCounter(milestones[3], milestones[4]) - 60;
-		};
+			return milestones;
+		}
 		
 		var dateToString = function(date) {
-			//var WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 			var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 			return date.getDate()+" "+MONTHS[date.getMonth()]+" "+date.getFullYear();
 		}
