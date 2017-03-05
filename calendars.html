@@ -64,10 +64,10 @@
 		<tr><th class="title">Mayan date:</th><td><span id="mayan"><i>Coming soon...</i></span></td><td class="go"><a href="https://en.wikipedia.org/wiki/Maya_calendar">More...</a></td></tr>
 		<tr><th class="title">Aztec date:</th><td><span id="aztec"><i>Coming soon...</i></span></td><td class="go"><a href="https://en.wikipedia.org/wiki/Aztec_calendar">More...</a></td></tr>
 	</table>
-	<table>
+	<!--table>
 		<caption><h3>Abroad calendars</h3></caption>
 		<tr><th class="title">Darian date:</th><td><span id="darian"><i>Coming soon...</i></span></td><td class="go"><a href="https://en.wikipedia.org/wiki/Darian_calendar">More...</a></td></tr>
-	</table>
+	</table-->
 </body>
 <script src="js/common.js"></script>
 <script src="js/imladris.js"></script>
@@ -83,7 +83,7 @@
 <script src="js/roman.js"></script>
 <script src="js/mayan.js"></script>
 <script src="js/aztec.js"></script>
-<script src="js/darian.js"></script>
+<!--script src="js/darian.js"></script-->
 <script src="js/goddess.js"></script>
 <script src="js/season.js"></script>
 <script src="js/asimov.js"></script>
@@ -106,7 +106,7 @@ var calendars = (function() {
 			document.getElementById("roman").textContent = romanCalendarText(date);
 			document.getElementById("mayan").textContent = mayanTHCalendarText(date)+ " " + mayanLongCalendarText(date);
 			document.getElementById("aztec").textContent = aztecSolarCalendarText(date) + " (Solar Date), " + aztecSacredCalendarText(date) + " (Sacred Date)";
-			document.getElementById("darian").textContent = darianCalendarText(date);
+			// document.getElementById("darian").textContent = darianCalendarText(date);
 			document.getElementById("season").textContent = seasonCalendarText(date);
 			document.getElementById("asimov").textContent = asimovCalendarText(date);
 		};
