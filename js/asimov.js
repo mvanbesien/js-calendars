@@ -22,5 +22,5 @@ var asimovCalendarValues = function(date) {
 var asimovCalendarText = function(date) {
 	var dow = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	var values = asimovCalendarValues(date);
-	return (values[1] < 92 ? (dow[values[1] % 7] + ' '): '') + ['A', 'B', 'C', 'D'][values[0]]+ '-' + (values[1] < 9 ? "0" : "") + (values[1] + 1) +", "+values[2];
+	return (values[1] < 92 ? (dow[values[1] % 7] + ' '): '') + ['A', 'B', 'C', 'D'][values[0]]+ '-' + (values[1] < 9 ? "0" : "") + (values[1]) +", "+values[2];
 }

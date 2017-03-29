@@ -1,4 +1,4 @@
-<!-- mvanbesien - v1.1 - 11 Mar 2016 -->
+<!-- mvanbesien - v1.2 - 29 Mar 2017 -->
 <!DOCTYPE html>
 <html lang="en">
 <meta charset=utf-8 />
@@ -36,6 +36,10 @@
 <body>
 	<h2>Calendrical Calculations</h2>
 	<p class="currentDate"><b>For current Gregorian date: </b><span id="currentDate"></span></p>
+	<form align="center">
+		<span>Change date:</span>
+		<input type="date" id="datepicker" min="1900-01-01" max="2200-01-01" onChange="calendars.init()"/>
+	</form>
 	<table>
 		<caption><h3>LOTR calendars</h3></caption>
 		<tr><th class="title">Imladris date:</th><td><span id="imladris"><i>Coming soon...</i></span></td><td class="go"><a href="https://en.wikipedia.org/wiki/Middle-earth_calendar#Calendar_of_Imladris">More...</a></td></tr>
@@ -90,7 +94,12 @@
 <script>
 var calendars = (function() {
 		var calendarsUpdater = function() {
-			var date = new Date();
+		
+			var date = document.getElementById("datepicker").valueAsDate;
+			if (date == null) {
+				date = new Date();
+			}
+			
 			document.getElementById("currentDate").textContent = dateToString(date);
 			document.getElementById("imladris").textContent = imladrisCalendarText(date);
 			document.getElementById("numenor").textContent = numenorCalendarText(date);
@@ -120,7 +129,7 @@ var calendars = (function() {
 		return {
 			init: function() {
 			calendarsUpdater();
-			setInterval(calendarsUpdater, 60000);
+			//setInterval(calendarsUpdater, 60000);
 		},
  	};
 })();
