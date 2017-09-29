@@ -58,6 +58,7 @@
 		<caption><h3>Fictional calendars</h3></caption>
 		<tr><th class="title">McKenna-Meyer Goddess date:</th><td><span id="goddess"><i>Coming soon...</i></span></td><td class="go"><a href="http://www.fractal-timewave.com/mmgc/mmgc.htm">More...</a></td></tr>
 		<tr><th class="title">Liberalia Triday date:</th><td><span id="liberalia"><i>Coming soon...</i></span></td><td class="go"><a href="http://www.hermetic.ch/cal_stud/ltc/ltc.htm">More...</a></td></tr>
+		<tr><th class="title">Yerm Lunar date:</th><td><span id="yerm"><i>Coming soon...</i></span></td><td class="go"><a href="https://hermetic.ch/cal_stud/palmen/yerm1.htm">More...</a></td></tr>
 		<tr><th class="title">Discordian date:</th><td><span id="discordian"><i>Coming soon...</i></span></td><td class="go"><a href="https://en.wikipedia.org/wiki/Discordian_calendar">More...</a></td></tr>
 		<tr><th class="title">French Pataphysique date:</th><td><span id="pataphysique"><i>Coming soon...</i></span></td><td class="go"><a href="https://fr.wikipedia.org/wiki/Calendrier_pataphysique">More...</a></td></tr>
 	</table>
@@ -89,6 +90,7 @@
 <script src="js/aztec.js"></script>
 <!--script src="js/darian.js"></script-->
 <script src="js/goddess.js"></script>
+<script src="js/yerm.js"></script>
 <script src="js/season.js"></script>
 <script src="js/asimov.js"></script>
 <script>
@@ -108,6 +110,7 @@ var calendars = (function() {
 			document.getElementById("symmetry454").textContent = symmetry454CalendarText(date);
 			document.getElementById("universal").textContent = universalCalendarText(date);
 			document.getElementById("goddess").textContent = goddessCalendarText(date);
+			document.getElementById("yerm").textContent = yermCalendarText(date);
 			document.getElementById("liberalia").textContent = liberaliaCalendarText(date);
 			document.getElementById("discordian").textContent = discordianCalendarText(date);
 			document.getElementById("pataphysique").textContent = pataphysiqueCalendarText(date);
