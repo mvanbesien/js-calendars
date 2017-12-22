@@ -1,4 +1,4 @@
-// mvanbesien - v1.0 - 05 Mar 2017
+// mvanbesien - v1.1 - 22 Dec 2017
 
 var asimovCalendarValues = function(date) {
 	
