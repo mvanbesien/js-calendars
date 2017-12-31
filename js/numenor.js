@@ -1,4 +1,4 @@
-// mvanbesien - v1.0 - 26 Feb 2016
+// mvanbesien - v1.1 - 31 Dec 2017
 
 var numenorCalendarValues = function(date) {
 	var day = date.getDate();
@@ -7,7 +7,7 @@ var numenorCalendarValues = function(date) {
 
 	var offset = dayCounter(new Date(year, 0, 1), date) + 10;
 	var nbOfDaysInYear = isLeapYear(year) ? 366 : 365;
-	if (offset > nbOfDaysInYear) {
+	if (offset >= nbOfDaysInYear) {
 		offset -= nbOfDaysInYear;
 		year++;
 	}
